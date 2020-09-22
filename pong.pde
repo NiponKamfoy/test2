@@ -13,12 +13,25 @@ void setup() {
 }
 
 void draw() {
+  
   background(0);
   rect(600, 300, 10, height);
   pongball.move();
+  
   if (pongball.positionX > width || pongball.positionX < 0){
     pongball.direction *= -1 ;
   }
+  
+  if (mousePressed == true){
+    if (mouseX < 600){
+      paddleL.positionY = mouseY ;
+    }      
+    if (mouseX > 600){
+      paddleR.positionY = mouseY ;
+    }      
+  }
+  rect(paddleR.positionX, paddleR.positionY, paddleR.width, paddleR.height);
+  rect(paddleL.positionX, paddleL.positionY, paddleL.width, paddleL.height);
 }
 
 class PongGame {
