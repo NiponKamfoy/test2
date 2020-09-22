@@ -1,6 +1,7 @@
 PongBall pongball;
 PongPaddle_Left paddleL;
 PongPaddle_Right paddleR;
+PongGame ponggame;
 
 void setup() {
   background(0);
@@ -8,38 +9,58 @@ void setup() {
   rectMode(CENTER);
   rect(600, 300, 10, height);
   pongball = new PongBall();
-  paddleL = new PongPaddle_Left(300, 25, 200) ;
-  paddleR = new PongPaddle_Right(300, 25, 200) ;
+  paddleL = new PongPaddle_Left(300, 50, 200) ;
+  paddleR = new PongPaddle_Right(300, 50, 200) ;
+  ponggame = new PongGame();
 }
 
 void draw() {
-  
+
   background(0);
   rect(600, 300, 10, height);
   pongball.move();
-  
-  if (pongball.positionX > width || pongball.positionX < 0){
+
+  if (pongball.positionX > (paddleR.positionX - paddleR.width) && pongball.positionY < (paddleR.positionY + paddleR.height) && 
+    pongball.positionY > (paddleR.positionY - paddleR.height)) {
+    paddleR.bounceBall(pongball) ;
+  }
+  if (pongball.positionX < (paddleL.positionX + paddleR.width) && pongball.positionY < (paddleL.positionY + paddleL.height) && 
+    pongball.positionY > (paddleL.positionY - paddleL.height)) {
+    paddleL.bounceBall(pongball) ;
+  }
+  if (pongball.positionY > height || pongball.positionY < 0) {
     pongball.direction *= -1 ;
   }
-  
-  if (mousePressed == true){
-    if (mouseX < 600){
+
+  if (mousePressed == true) {
+    if (mouseX < 600) {
       paddleL.positionY = mouseY ;
     }      
-    if (mouseX > 600){
+    if (mouseX > 600) {
       paddleR.positionY = mouseY ;
-    }      
+    }
   }
   rect(paddleR.positionX, paddleR.positionY, paddleR.width, paddleR.height);
   rect(paddleL.positionX, paddleL.positionY, paddleL.width, paddleL.height);
+  ponggame.update();
 }
 
+
 class PongGame {
+  int scoreL, scoreR ;
 
   void update() {
+    scoreL = 0;
+    scoreR = 0;
+    textSize(70);
+    textMode(CENTER);
+    text(scoreL, 300, 80);
+    text(scoreR, 900, 80);
   }
 
-  void serveBall() {
+  void serveBall(PongBall pongball) {
+    pongball.positionX = 600 ;
+    pongball.positionY = 300 ;
   }
 }
 
@@ -71,7 +92,8 @@ class PongPaddle_Left {
     rect(this.positionX, this.positionY, this.width, this.height);
   } 
 
-  void bounce_ball() {
+  void bounceBall(PongBall pongball) {
+    pongball.direction *= -1 ;
   }
 }
 
@@ -86,6 +108,7 @@ class PongPaddle_Right {
     rect(this.positionX, this.positionY, this.width, this.height);
   } 
 
-  void bounce_ball() {
+  void bounceBall(PongBall pongball) {
+    pongball.direction *= -1 ;
   }
 }
