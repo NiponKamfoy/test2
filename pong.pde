@@ -68,6 +68,18 @@ class PongGame {
     textMode(CENTER);
     text(scoreL, 300, 80);
     text(scoreR, 900, 80);
+    if (scoreL == 5){
+      textMode(CENTER);
+      text("Player Left win", 300, 300);
+      delay(100);
+      exit();
+    }
+    else if (scoreR == 5){
+      textMode(CENTER);
+      text("Player Right win", 300, 300);
+      delay(100);
+      exit();
+    }
   }
 
   void serveBall(PongBall pongball) {
