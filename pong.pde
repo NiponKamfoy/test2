@@ -8,6 +8,13 @@ void draw(){
 
 class PongGame{
   
+  void update(){
+    
+  }
+  
+  void serveBall(){
+    
+  }
 }
 
 class PongBall{
@@ -20,7 +27,7 @@ class PongBall{
   }
   
   void move() {
- 
+    
   }
   
 }
