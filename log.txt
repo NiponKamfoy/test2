@@ -1,0 +1,53 @@
+commit 25d69a5d8ee967955199661f4b9df804230ff4bc
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Wed Sep 23 21:37:11 2020 +0700
+
+    edit to use instance instead rectangle normal
+
+commit 01686a95755ee50add31f5127892a90f7ed3a07f
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 15:34:12 2020 +0700
+
+    finish
+
+commit c111d5488b392c5662e7a3aae5f2cc923c676b73
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 15:13:28 2020 +0700
+
+    edit projectile ball and count score
+
+commit 6db7dc49fdfed97c0762188784c60fed92cce701
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 14:55:30 2020 +0700
+
+    add score
+
+commit 8b1f47819d848b143cc1b0893d5cd583a25f977d
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 14:20:50 2020 +0700
+
+    add animation of paddleLeft and paddleRight
+
+commit 7803c83ac69db8c881e3dc444b45873979dd5a06
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 14:13:29 2020 +0700
+
+    add animation with ball
+
+commit 7ce928c16bd48818f5da5c70d6de187b1f21c70e
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 13:55:36 2020 +0700
+
+    add graphics ball net and paddle
+
+commit ea6c7eebf2b5340019d7e06a946b8ddae5a929c4
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 13:25:27 2020 +0700
+
+    add more design class
+
+commit 428c35b496bb233937c7685529e8b86642c9cfd8
+Author: Nipon Kamfoy <s6201012630061@email.kmutnb.ac.th>
+Date:   Tue Sep 22 13:20:00 2020 +0700
+
+    design class and method
