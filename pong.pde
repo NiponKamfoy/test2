@@ -49,9 +49,8 @@ void draw() {
     ponggame.scoreR += 1;
     ponggame.serveBall(pongball);
   }
-  
-  rect(paddleR.positionX, paddleR.positionY, paddleR.width, paddleR.height);
-  rect(paddleL.positionX, paddleL.positionY, paddleL.width, paddleL.height);
+  paddleL = new PongPaddle_Left(paddleL.positionY, paddleL.width, paddleL.height) ;
+  paddleR = new PongPaddle_Right(paddleR.positionY, paddleR.width, paddleR.height) ;
   ponggame.update();
 }
 
