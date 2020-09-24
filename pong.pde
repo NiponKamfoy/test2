@@ -1,7 +1,6 @@
 PongBall pongball;
-PongPaddle_Left paddleL;
-PongPaddle_Right paddleR;
 PongGame ponggame;
+PongPaddle paddleL, paddleR ;
 
 void setup() {
   background(0);
@@ -9,8 +8,8 @@ void setup() {
   rectMode(CENTER);
   rect(600, 300, 10, height);
   pongball = new PongBall();
-  paddleL = new PongPaddle_Left(300, 50, 200) ;
-  paddleR = new PongPaddle_Right(300, 50, 200) ;
+  paddleL = new PongPaddle(0, 300, 50, 200);
+  paddleR = new PongPaddle(1200, 300, 50, 200);
   ponggame = new PongGame();
 }
 
@@ -49,8 +48,8 @@ void draw() {
     ponggame.scoreR += 1;
     ponggame.serveBall(pongball);
   }
-  paddleL = new PongPaddle_Left(paddleL.positionY, paddleL.width, paddleL.height) ;
-  paddleR = new PongPaddle_Right(paddleR.positionY, paddleR.width, paddleR.height) ;
+  paddleL = new PongPaddle(0, paddleL.positionY, paddleL.width, paddleL.height);
+  paddleR = new PongPaddle(1200, paddleR.positionY, paddleR.width, paddleR.height);
   ponggame.update();
 }
 
@@ -84,6 +83,7 @@ class PongGame {
   void serveBall(PongBall pongball) {
     pongball.positionX = 600 ;
     pongball.positionY = 300 ;
+    pongball.directionX = 1;
   }
 }
 
@@ -106,27 +106,11 @@ class PongBall {
   }
 }
 
-class PongPaddle_Left {
+class PongPaddle {
   float positionX, positionY, width, height;
 
-  PongPaddle_Left(float positionY, float sizeX, float sizeY) {
-    this.positionX = 0 ;
-    this.positionY = positionY;
-    this.width = sizeX;
-    this.height = sizeY;
-    rect(this.positionX, this.positionY, this.width, this.height);
-  } 
-
-  void bounceBall(PongBall pongball) {
-    pongball.directionX *= -1 ;
-  }
-}
-
-class PongPaddle_Right {
-  float positionX, positionY, width, height;
-
-  PongPaddle_Right(float positionY, float sizeX, float sizeY) {
-    this.positionX = 1200 ;
+  PongPaddle(float positionX, float positionY, float sizeX, float sizeY) {
+    this.positionX = positionX ;
     this.positionY = positionY; 
     this.width = sizeX;
     this.height = sizeY;
@@ -134,6 +118,6 @@ class PongPaddle_Right {
   } 
 
   void bounceBall(PongBall pongball) {
-    pongball.directionX *= -1 ;
+    pongball.directionX *= -1.1 ;
   }
 }
