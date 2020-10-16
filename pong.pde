@@ -8,7 +8,6 @@ void setup() {
   rectMode(CENTER);
   rect(600, 300, 10, height);
   pongball = new PongBall();
-  paddleL = new PongPaddle(0, 300, 50, 200);
   paddleR = new PongPaddle(1200, 300, 50, 200);
   ponggame = new PongGame();
 }
@@ -23,11 +22,10 @@ void draw() {
     pongball.positionY > (paddleR.positionY - paddleR.height/2)) {
     paddleR.bounceBall(pongball) ;
   }
-  if (pongball.positionX < (paddleL.positionX + paddleR.width) && pongball.positionY < (paddleL.positionY + paddleL.height/2) && 
-    pongball.positionY > (paddleL.positionY - paddleL.height/2)) {
-    paddleL.bounceBall(pongball) ;
+  if (pongball.positionX < 0 ) {
+    pongball.directionX *= -1 ;
   }
-  if (pongball.positionY > height || pongball.positionY < 0) { // ball bounce with top and bottom edge
+  if (pongball.positionY > height || pongball.positionY < 0 ) { // ball bounce with top and bottom edge
     pongball.directionY *= -1 ;
   }
 
@@ -44,11 +42,7 @@ void draw() {
     ponggame.scoreL += 1 ;
     ponggame.serveBall(pongball);
   }
-  else if (pongball.positionX < 0){
-    ponggame.scoreR += 1;
-    ponggame.serveBall(pongball);
-  }
-  paddleL = new PongPaddle(0, paddleL.positionY, paddleL.width, paddleL.height);
+
   paddleR = new PongPaddle(1200, paddleR.positionY, paddleR.width, paddleR.height);
   ponggame.update();
 }
@@ -93,7 +87,7 @@ class PongBall {
   PongBall() {
     this.positionX = 600 ;
     this.positionY = 300 ;
-    this.speed = 5 ;
+    this.speed = 10 ;
     this.directionX = 1 ;
     this.directionY = 1 ;
     circle(this.positionX, this.positionY, 50);
